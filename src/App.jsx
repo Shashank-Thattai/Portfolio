@@ -1,4 +1,5 @@
 // src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero"
 import About from "./components/About"
@@ -11,15 +12,24 @@ import ToDOlist from "./components/ToDoList";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Hero/>
-      <About/>
-      <Projects/>
-      <Skills/>
-      <Contact/>
-      <Footer/>
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <About />
+              <Projects />
+              <Skills />
+              <Contact />
+            </>
+          }
+        />
+        <Route path="/todo" element={<ToDOList />} />
+      </Routes>
+    </Router>
   );
 }
 
