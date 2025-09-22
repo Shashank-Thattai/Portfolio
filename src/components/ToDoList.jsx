@@ -12,15 +12,35 @@ function forInputChange(event)
 
 }
 function addTask(){
+    if(newTask.trim()!==""){
+        setTasks(t=>[...t,newTask]);
+        setNewTask("");
 
+    }
 }
 function deleteTask(index){
+    const updatedTasks =tasks.filter((element,i)=> i!==index);
+    setTasks(updatedTasks);
 
 }
 function moveTaskUp(index){
+    if(index>0)
+    {
+        const updatedTasks =[...tasks];
+        [updatedTasks[index],updatedTasks[index-1]]=
+        [updatedTasks[index-1],updatedTasks[index]];
+        setTasks(updatedTasks);
+    }
 
 }
 function moveTaskDown(index){
+    if(index<tasks.length-1)
+    {
+        const updatedTasks =[...tasks];
+        [updatedTasks[index],updatedTasks[index+1]]=
+        [updatedTasks[index+1],updatedTasks[index]];
+        setTasks(updatedTasks);
+    }
 
 }
 
@@ -30,7 +50,7 @@ function moveTaskDown(index){
 
         <div>
             <input type="text" placeholder="Enter a task" value={newTask} onChange={forInputChange}/>
-            <button className="add-button" onClick={addTask}></button>
+            <button className="add-button" onClick={addTask}>Add Task</button>
 
         </div>
 
@@ -55,4 +75,4 @@ function moveTaskDown(index){
     );
 
 }
-export default ToDOlist
+export default ToDOList;

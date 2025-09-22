@@ -7,8 +7,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ToDOlist from "./components/ToDoList";
-
+import ToDoList from "./components/ToDoList";
 
 function App() {
   return (
@@ -27,8 +26,7 @@ function App() {
             </>
           }
         />
-        <Route path="/todo" element={<ToDOList />} />
-      </Routes>
+      <Route path="/todo" element={<ToDoList />} />      </Routes>
     </Router>
   );
 }
